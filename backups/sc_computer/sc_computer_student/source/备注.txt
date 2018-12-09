@@ -1,0 +1,5 @@
+dffe32   32位寄存器
+sc-cpu   单周期CPU模块
+scinstmem   指令存储器模块
+scdatamem  数据存储器模块
+sc-compute  调用以上三个模块

@@ -1,0 +1,23 @@
+DEPTH = 16;           % Memory depth and width are required %
+WIDTH = 32;           % Enter a decimal number %
+ADDRESS_RADIX = HEX;  % Address and value radixes are optional %
+DATA_RADIX = HEX;     % Enter BIN, DEC, HEX, or OCT; unless %
+                      % otherwise specified, radixes = HEX %
+CONTENT
+BEGIN
+[0..F] : 00000000;   % Range--Every address from 0 to 1F = 00000000 %
+
+1 : 3c000000;        % (04)       lui $0, 0          #  %
+2 : 20010080;        % (08)       addi  $1, $0, 0x80 #  %
+3 : 20020084;        % (0c)       addi  $2, $0, 0x84 #  %
+4 : 20030088;        % (10)       addi $3, $0, 0x88  #  %
+5 : 200400c0;        % (14)       addi  $4, $0, 0xc0 #  %
+6 : 200500c4;        % (18)       addi $5, $0, 0xc4  #  %
+8 : 8c860000;        % (20)       lw $6, 0($4)       #  %
+9 : 8ca70000;        % (24)       lw  $7, 0($5)      #  %
+A : 00c74020;        % (28)       add $8, $6, $7     #  %
+B : ac260000;        % (2c)       sw $6, 0($1)       #  %
+C : ac470000;        % (30)       sw  $7, 0($2)      #  %
+D : ac680000;        % (34)       sw $8, 0($3)       #  %
+E : 08000007;        % (38)       j  body            #  %
+END ;
